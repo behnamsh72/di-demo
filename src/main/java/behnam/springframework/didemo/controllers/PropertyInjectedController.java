@@ -3,6 +3,7 @@ package behnam.springframework.didemo.controllers;
 import behnam.springframework.didemo.services.GreetingService;
 import behnam.springframework.didemo.services.GreetingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -18,6 +19,7 @@ public class PropertyInjectedController {
 
     //  we used to bean implementation name to specify the name of the greetingServiceImpl
     @Autowired
+    @Qualifier("greetingServiceImpl")
     public GreetingService greetingServiceImpl;
 
     public String sayHello() {
