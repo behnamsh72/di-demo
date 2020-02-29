@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 public class LifeCycleDemoBean implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware, ApplicationContextAware {
@@ -47,6 +48,7 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("##The post construct annotated method has been called");
     }
 
+    @PreDestroy
     public void preDestroy() {
         System.out.println("##The Predestroy annotated method has been called");
     }
