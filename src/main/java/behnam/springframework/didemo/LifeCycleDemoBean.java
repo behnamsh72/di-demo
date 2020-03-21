@@ -28,6 +28,7 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
 
     @Override
     public void setBeanName(String name) {
+
         System.out.println("##My bean name is " + name);
     }
 
