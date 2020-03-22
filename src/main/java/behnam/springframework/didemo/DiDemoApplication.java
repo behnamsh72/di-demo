@@ -5,6 +5,7 @@ import behnam.springframework.didemo.controllers.MyController;
 import behnam.springframework.didemo.controllers.PropertyInjectedController;
 import behnam.springframework.didemo.controllers.SetterInjectedController;
 import behnam.springframework.didemo.examplebeans.FakeDataSource;
+import behnam.springframework.didemo.examplebeans.FakeJmsBroker;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,6 +28,8 @@ public class DiDemoApplication {
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
         System.out.println(fakeDataSource.getUser());
 
+        FakeJmsBroker fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+        System.out.println("username: " + fakeJmsBroker.getUsername() + " password: " + fakeJmsBroker.getPassword() + " url: " + fakeJmsBroker.getUrl());
 
     }
 
