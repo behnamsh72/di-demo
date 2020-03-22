@@ -4,6 +4,7 @@ import behnam.springframework.didemo.controllers.ConstructorInjectedController;
 import behnam.springframework.didemo.controllers.MyController;
 import behnam.springframework.didemo.controllers.PropertyInjectedController;
 import behnam.springframework.didemo.controllers.SetterInjectedController;
+import behnam.springframework.didemo.examplebeans.FakeDataSource;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +22,10 @@ public class DiDemoApplication {
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
         System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
         System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+
+        //new for properties
+        FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUser());
 
 
     }
