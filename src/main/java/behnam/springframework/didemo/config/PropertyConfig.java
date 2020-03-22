@@ -17,14 +17,16 @@ import org.springframework.core.env.Environment;
 */
 
 //spring 4 introduce this
-@PropertySources({
+/*@PropertySources({
         @PropertySource("classpath:datasource.properties"),
         @PropertySource("classpath:jms.properties")
-})
+})*/
 public class PropertyConfig {
+/*
 
     @Autowired
     Environment env;
+*/
 
     @Value("${guru.username}")
     String user;
@@ -47,7 +49,8 @@ public class PropertyConfig {
     @Bean
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUser(env.getProperty("USERNAME"));
+        /*fakeDataSource.setUser(env.getProperty("USERNAME"));*/
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
         return fakeDataSource;
@@ -62,11 +65,11 @@ public class PropertyConfig {
         return jmsBroker;
     }
 
-
-    @Bean
+    //use for just create a seperate properties file from application.properties
+/*    @Bean
     public static PropertySourcesPlaceholderConfigurer propertioes() {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
         return propertySourcesPlaceholderConfigurer;
-    }
+    }*/
 
 }
